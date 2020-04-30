@@ -1,0 +1,52 @@
+{
+    "algorithm": "gradient_descent",
+    "results_path": "tmp/output/gd_on_chip/boolean_logic/cor_sigmoid/",
+    "experiment_name": "scale_18_0_lr_2E-2",
+    "processor_type": "cdaq_to_cdaq",
+    "task": ["XOR"],     
+    "hyperparameters": {
+        "nr_epochs": 100,
+        "initializations": 3,
+        "learning_rate": 2E-2,
+        "save_interval": 1,
+        "optimizer": "basic_GD",
+        "loss_function": "cor_sigmoid",
+        "stop_threshold": 0.1,
+        "phase_threshold": 90,
+        "target_low": 0,
+        "target_high": 1
+    },
+    "processor": {
+        "architecture": "single_device",
+        "platform": "hardware",
+        "processor_type": "cdaq_to_cdaq",
+        "driver": {
+            "driver_type": "remote",
+            "uri": "PYRO:obj_1b24d89ec5514330a61ac349a6caab25@192.168.1.5:8081"
+        },
+        "amplification": 100.0,
+        "sampling_frequency": 10000,
+        "input_channels": [2,1,8,0,7,4,6],
+        "input_indices": [1,2],
+        "output_channels": [7],
+        "input_electrode_no": 7,
+        "shape": 3000,
+        "output_clipping_value": 3.6,
+        "CVrange": [[-0.9, 1.2], [-0.8, 1.0], [-0.8, 1.0], [-0.8, 1.0], [-0.8, 1.0]]
+    },
+    "waveform": {
+        "ramp_length": 0.02,    
+        "amplitude_lengths": 0.05,
+        "slope_lengths": 0.02,
+        "input_cases": 4,
+        "amplitude_sines": [0.03, 0.01, 0.01, 0.005, 0.005],
+        "frequencies": [5, 9, 13, 19, 23],
+        "frequency_factor": 40,
+        "input_scale": 1.8,
+        "input_offset": 0
+    },
+    "checkpoints": {
+        "use_checkpoints": false,
+        "save_interval": 1
+    } 
+}
